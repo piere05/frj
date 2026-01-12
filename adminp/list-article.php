@@ -9,7 +9,6 @@ include 'overall-functions.php';
 $act=$_GET['act'];
 $url_id=$_GET['id'];
 
-
 if ($act=='delete' && $url_id!='') {
 
 $select_oldf=mysqli_query($conn,"select * from articles where id='$url_id'");

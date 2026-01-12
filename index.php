@@ -115,6 +115,7 @@ header("location:index.php?alertmsg=$alertmsg#contact");
 <link rel="stylesheet preload" href="assets/css/plugins/fontawesome.min.css" as="style">
 
 <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
 </head>
 
 <body>
@@ -261,21 +262,130 @@ $image1=$row_blog['image1'];
 </section>
 <?}?>
 
-<!-- 
+
 <?
 
-$select_english=mysqli_query($conn,"select * from english_res where status=1 limit 3");
+$select_english=mysqli_query($conn,"select * from english_res where status=1 and  type='English' limit 3");
 
 if (mysqli_num_rows($select_english)!=0) {
 
 ?>
 
-<section class="spacer-top spacer-bottom">
+<section class="spacer-top spacer-bottom" id="english">
 <div class="container">
 <h2 class="heading title split-collab animated fadeIn text-center">English Resources</h2>
 <div class="row">
+
+<?while($row_english=mysqli_fetch_array($select_english)){
+    
+ $eng_title=$row_english['title'];
+ $eng_id=$row_english['id'];   
+?>
+    
+<div class="col-lg-3 col-md-3 col-sm-6">
+    <a href="adminp/uploads/english-res/<?=$row_english['res_file'];?>" target="_blank">
+<div class="card">
+    <div class="card-body">
+    <div class="text-center">
+<img src="assets/images/pdf.svg" class="img-fluid" alt="..." width="150px">
+    </div>
+    </div>
+    <div class="card-footer">
+<h4 class="text-center"><?=$eng_title;?></h4>
 </div>
-<div class="text-center" id="italian">
+</div>
+</a>
+</div>
+
+<?}?>
+</div>
+<div class="text-center" >
+<a href="" class="rts-btn btn-primary-4-border arrow-rotate inner d-inline-block mx-auto"><i class="fa-light fa-arrow-right"></i> View All English Resource</a>
+</div>
+</div>
+</section>
+
+
+<?
+}
+$select_italian=mysqli_query($conn,"select * from english_res where status=1 and  type='Italian' limit 3");
+
+if (mysqli_num_rows($select_italian)!=0) {
+
+?>
+
+<section class="spacer-top spacer-bottom" id="italian">
+<div class="container">
+<h2 class="heading title split-collab animated fadeIn text-center">Italian Resources</h2>
+<div class="row">
+
+<?while($row_italian=mysqli_fetch_array($select_italian)){
+    
+ $italian_title=$row_italian['title'];
+ $italian_id=$row_italian['id'];   
+?>
+    
+<div class="col-lg-3 col-md-3 col-sm-6">
+    <a href="adminp/uploads/english-res/<?=$row_italian['res_file'];?>" target="_blank">
+<div class="card">
+    <div class="card-body">
+    <div class="text-center">
+<img src="assets/images/pdf.svg" class="img-fluid" alt="..." width="150px">
+    </div>
+    </div>
+    <div class="card-footer">
+<h4 class="text-center"><?=$italian_title;?></h4>
+</div>
+</div>
+</a>
+</div>
+
+<?}?>
+</div>
+<div class="text-center" >
+<a href="" class="rts-btn btn-primary-4-border arrow-rotate inner d-inline-block mx-auto"><i class="fa-light fa-arrow-right"></i> View All English Resource</a>
+</div>
+</div>
+</section>
+
+
+<?
+}
+$select_tamil=mysqli_query($conn,"select * from english_res where status=1 and  type='Tamil' limit 3");
+
+if (mysqli_num_rows($select_tamil)!=0) {
+
+?>
+
+<section class="spacer-top spacer-bottom" id="italian">
+<div class="container">
+<h2 class="heading title split-collab animated fadeIn text-center">Italian Resources</h2>
+<div class="row">
+
+<?while($row_tamil=mysqli_fetch_array($select_tamil)){
+    
+ $tamil_title=$row_tamil['title'];
+ $tamil_id=$row_tamil['id'];   
+?>
+    
+<div class="col-lg-3 col-md-3 col-sm-6">
+    <a href="adminp/uploads/english-res/<?=$row_tamil['res_file'];?>" target="_blank">
+<div class="card">
+    <div class="card-body">
+    <div class="text-center">
+<img src="assets/images/pdf.svg" class="img-fluid" alt="..." width="150px">
+    </div>
+    </div>
+    <div class="card-footer">
+<h4 class="text-center"><?=$tamil_title;?></h4>
+</div>
+</div>
+</a>
+</div>
+
+<?}?>
+</div>
+<div class="text-center" >
 <a href="" class="rts-btn btn-primary-4-border arrow-rotate inner d-inline-block mx-auto"><i class="fa-light fa-arrow-right"></i> View All English Resource</a>
 </div>
 </div>
@@ -283,21 +393,45 @@ if (mysqli_num_rows($select_english)!=0) {
 
 
 <?}
-$select_english=mysqli_query($conn,"select * from articles where status=1 limit 3");
+$select_article=mysqli_query($conn,"select * from articles where status=1 limit 3");
 
-if (mysqli_num_rows($select_english)!=0) {?>
+if (mysqli_num_rows($select_article)!=0) {?>
 
 <section class="spacer-top spacer-bottom">
 <div class="container">
-<h2 class="heading title split-collab animated fadeIn text-center">Italian Resources</h2>
+<h2 class="heading title split-collab animated fadeIn text-center">Article Resources</h2>
 <div class="row">
+
+
+<?while($row_article=mysqli_fetch_array($select_article)){
+    
+ $article_title=$row_article['title'];
+ $article_id=$row_article['id'];   
+?>
+    
+<div class="col-lg-3 col-md-3 col-sm-6">
+    <a href="adminp/uploads/english-res/<?=$row_article['res_file'];?>" target="_blank">
+<div class="card">
+    <div class="card-body">
+    <div class="text-center">
+<img src="assets/images/pdf.svg" class="img-fluid" alt="..." width="150px">
+    </div>
+    </div>
+    <div class="card-footer">
+<h4 class="text-center"><?=$article_title;?></h4>
+</div>
+</div>
+</a>
+</div>
+
+<?}?>
 </div>
 <div class="text-center" >
 <a href="" class="rts-btn btn-primary-4-border arrow-rotate inner d-inline-block mx-auto"><i class="fa-light fa-arrow-right"></i> View All Italian Resource</a>
 </div>
 </div>
 </section>
-<?}?> -->
+<?}?> 
 
 
 <?
@@ -356,7 +490,7 @@ $faqcontent=$row_faq['content'];
 </section>
 <?}
 
-$select_gallery=mysqli_query($conn,"select * from gallery where status=1 order by id desc limit 6 ");
+$select_gallery=mysqli_query($conn,"select * from gallery where status=1 order by id desc limit 3");
 if(mysqli_num_rows($select_gallery)!=0){
 ?>
 
@@ -485,7 +619,7 @@ value="contact">Contact<i class="fa-solid fa-location-arrow"></i></button>
 
 
 
-<script defer src="assets/js/plugins/jquery.min.js"></script>
+<script  src="assets/js/plugins/jquery.min.js"></script>
 <script defer src="assets/js/plugins/bootstrap.min.js"></script>
 <script defer src="assets/js/plugins/metismenu.js"></script>
 <script defer src="assets/js/vendor/jqueryui.js"></script>
@@ -501,7 +635,25 @@ value="contact">Contact<i class="fa-solid fa-location-arrow"></i></button>
 <script defer src="assets/js/plugins/magnific-popup.js"></script>
 <script defer src="assets/js/plugins/contact-form.js"></script>
 <script defer src="assets/js/main.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
 
+<script>
+$(document).ready(function () {
+    $('.img-popup').magnificPopup({
+        type: 'image',
+        closeOnContentClick: true,
+        mainClass: 'mfp-img-mobile',
+        image: {
+            verticalFit: true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300
+        }
+    });
+});
+
+</script>
 <script>
 function closealert(){
 $(".alert-m").css("display","none");
